@@ -11,12 +11,11 @@ public class PlayerMove : MonoBehaviour
     public float MaxAngleGround;
     public float MaxSpeed;
     public Transform ColliderTransform;
-    public Transform RayStart;
 
     private float _jumpFrameCounter = 3;
-    private float _directionVelocity = 0;
 
-    Coroutine _decreaseDirevtionValue;
+    private int _directionVelocity;
+    private bool _crouching;
 
     public bool Grounded
     {
@@ -26,27 +25,19 @@ public class PlayerMove : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)
-            || Input.GetKey(KeyCode.S) || !Grounded)
+        if (_crouching || !Grounded)
         {
             ColliderTransform.localScale = Vector3.Lerp(ColliderTransform.localScale, new Vector3(1f, 0.5f, 1f), Time.deltaTime * 15);
         }
         else
         {
-            if (Physics.Raycast(RayStart.position, Vector3.up, out RaycastHit hit, 10, 1))
-            {
-                if (hit.distance > 1)
-                    ColliderTransform.localScale = Vector3.Lerp(ColliderTransform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * 15);
-            }
-            else
-                ColliderTransform.localScale = Vector3.Lerp(ColliderTransform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * 15);
+            ColliderTransform.localScale = Vector3.Lerp(ColliderTransform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * 15);
         }
+    }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (Grounded)
-                Jump();
-        }
+    public void SetCrouch(bool value)
+    {
+        _crouching = value;
     }
 
     public void Jump()
@@ -59,30 +50,16 @@ public class PlayerMove : MonoBehaviour
         _jumpFrameCounter = 0;
     }
 
-    public void SetDirectionVelocity(float value)
+    public void SetDirectionVelocity(int value)
     {
-        //if (_decreaseDirevtionValue != null)
-        //    StopCoroutine(_decreaseDirevtionValue);
-        
         _directionVelocity = value;
-        //_decreaseDirevtionValue = StartCoroutine(DecreaseDirevtionValue());
     }
-
-    //private IEnumerator DecreaseDirevtionValue()
-    //{
-    //    for (float t = 0; t < 0.5f; t += Time.deltaTime)
-    //    {
-    //        _directionVelocity -= Time.deltaTime * Mathf.Sign(_directionVelocity)*2;
-
-    //        yield return null;
-    //    }
-
-    //    _directionVelocity = 0;
-    //}
 
     private void FixedUpdate()
     {
         float speedMultiplier = (Grounded ? 1f : 0.2f);
+
+        //ограниечение скорости в полете
         if (!Grounded)
         {
             if (PlayerBody.velocity.x > MaxSpeed && _directionVelocity > 0)
@@ -93,6 +70,7 @@ public class PlayerMove : MonoBehaviour
 
         PlayerBody.AddForce(_directionVelocity * MoveSpeed * speedMultiplier, 0, 0, ForceMode.VelocityChange);
 
+        //добавление трения
         if (Grounded)
         {
             PlayerBody.AddForce(-PlayerBody.velocity.x * Friction, 0, 0, ForceMode.VelocityChange);
@@ -102,6 +80,7 @@ public class PlayerMove : MonoBehaviour
 
         _jumpFrameCounter++;
 
+        //кувырок в прыжке
         if (_jumpFrameCounter == 2)
         {
             PlayerBody.freezeRotation = false;
