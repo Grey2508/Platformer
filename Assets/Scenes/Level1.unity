@@ -760,7 +760,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackSpherePrefab: {fileID: 352597159515507285, guid: 201762f4bf21fbc43873384e2b79740d, type: 3}
   ShotDelay: 2
-  SphereSpeed: 5
+  SphereSpeed: 10
 --- !u!114 &744102753
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -821,7 +821,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AttackSpherePrefab: {fileID: 352597159515507285, guid: 201762f4bf21fbc43873384e2b79740d, type: 3}
   ShotDelay: 2
-  SphereSpeed: 5
+  SphereSpeed: 10
 --- !u!114 &744102753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1869,7 +1869,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1637555778
 GameObject:
