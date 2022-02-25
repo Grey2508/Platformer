@@ -9,6 +9,6 @@ public class ShowResult : MonoBehaviour
 
     private void OnLevelWasLoaded()
     {
-        TotalScoreText.text = ScoreCounter.TotalScore.ToString();
+        TotalScoreText.text = ScoreCounter.Instance.TotalScore.ToString();
     }
 }

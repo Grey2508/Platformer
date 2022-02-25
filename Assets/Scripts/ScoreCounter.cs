@@ -1,30 +1,43 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ScoreCounter : MonoBehaviour
 {
-    private static Text _scoreCountText;
+    private Text _scoreCountText;
 
-    public static int TotalScore
+    public int TotalScore
     {
         get;
         private set;
     }
 
-    private static bool created = false;
+    public static ScoreCounter Instance;
 
     void Awake()
     {
-        if (created)
-            return;
-
-        DontDestroyOnLoad(gameObject);
-        created = true;
+        SceneManager.sceneLoaded += OnChangeScene;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
     }
 
-    public static void AddScore(int ScoreCount)
+    private void OnChangeScene(Scene Scene, LoadSceneMode loadSceneMode)
+    {
+        _scoreCountText = GameObject.FindWithTag("ScoreCountText")?.GetComponent<Text>();
+        
+        if (_scoreCountText)
+            _scoreCountText.text = TotalScore.ToString();
+    }
+
+    public void AddScore(int ScoreCount)
     {
         TotalScore += ScoreCount;
 
@@ -32,13 +45,7 @@ public class ScoreCounter : MonoBehaviour
             _scoreCountText.text = TotalScore.ToString();
     }
 
-    private void OnLevelWasLoaded()
-    {
-        _scoreCountText = GameObject.FindWithTag("ScoreCountText").GetComponent<Text>();
-        _scoreCountText.text = TotalScore.ToString();
-    }
-
-    public static void Reset()
+    public void Reset()
     {
         TotalScore = 0;
     }

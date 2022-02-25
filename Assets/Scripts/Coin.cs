@@ -11,7 +11,7 @@ public class Coin : MonoBehaviour
         if (!other.attachedRigidbody.CompareTag("Player"))
             return;
 
-        ScoreCounter.AddScore(10);
+        ScoreCounter.Instance.AddScore(10);
 
         StartCoroutine(CoinEffect());
     }
