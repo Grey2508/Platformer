@@ -8,6 +8,6 @@ public class FinishLevel : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        GameManager.LoadScene(NextLevelIndex);
+        SceneManager.LoadScene(NextLevelIndex);
     }
 }
