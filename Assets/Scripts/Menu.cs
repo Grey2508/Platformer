@@ -7,7 +7,7 @@ public class Menu : MonoBehaviour
     public void StartGame()
     {
         ScoreCounter.Reset();
-        SceneManager.LoadScene(1);
+        SceneSwitcher.Instance.LoadScene(1);
     }
     public void ExitGame()
     {
