@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EffectSpeed: 5
+  Collider: {fileID: 1575481686}
 --- !u!114 &8960692696965695484
 MonoBehaviour:
   m_ObjectHideFlags: 0

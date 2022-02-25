@@ -5,11 +5,14 @@ using UnityEngine;
 public class Coin : MonoBehaviour
 {
     public float EffectSpeed = 2;
+    public Collider Collider;
 
     private void OnTriggerEnter(Collider other)
     {
         if (!other.attachedRigidbody.CompareTag("Player"))
             return;
+
+        Collider.enabled = false;
 
         ScoreCounter.Instance.AddScore(10);
 
