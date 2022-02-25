@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class SceneManager : MonoBehaviour
 {
     private static bool created = false;
 
@@ -16,19 +16,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void StartGame()
-    {
-        ScoreCounter.Reset();
-        LoadScene(1);
-    }
-
     public static void LoadScene(int sceneIndex)
     {
-        SceneManager.LoadScene(sceneIndex);
-    }
-
-    public void ExitGame()
-    {
-        Application.Quit();
+        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneIndex);
     }
 }
