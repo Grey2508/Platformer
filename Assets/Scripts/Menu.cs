@@ -18,4 +18,17 @@ public class Menu : MonoBehaviour
     {
         SceneSwitcher.Instance.LoadScene(0);
     }
+
+    public void SaveHighScore(string name)
+    {
+        Saver.Instance.SetHighScore(name, ScoreCounter.Instance.TotalScore);
+    }
+    
+
+    public void ShowHighScore()
+    {
+        Debug.Log(PlayerPrefs.GetString("HighScore"));
+    }
+
+    
 }
