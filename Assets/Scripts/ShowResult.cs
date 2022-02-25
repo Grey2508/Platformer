@@ -7,7 +7,7 @@ public class ShowResult : MonoBehaviour
 {
     public Text TotalScoreText;
 
-    private void OnLevelWasLoaded()
+    private void Start()
     {
         TotalScoreText.text = ScoreCounter.Instance.TotalScore.ToString();
     }
