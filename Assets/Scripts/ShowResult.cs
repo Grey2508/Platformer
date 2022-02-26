@@ -16,8 +16,7 @@ public class ShowResult : MonoBehaviour
         int totalScore = ScoreCounter.Instance.TotalScore;
         TotalScoreText.text = totalScore.ToString();
 
-        Debug.Log(Saver.Instance.GetHighScore());
-
+        
         if (totalScore >= Saver.Instance.GetHighScore())
         {
             ScoreCountText.text = totalScore.ToString();
