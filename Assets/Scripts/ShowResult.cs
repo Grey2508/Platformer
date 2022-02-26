@@ -15,12 +15,13 @@ public class ShowResult : MonoBehaviour
     {
         int totalScore = ScoreCounter.Instance.TotalScore;
         TotalScoreText.text = totalScore.ToString();
-
         
         if (totalScore >= Saver.Instance.GetHighScore())
         {
             ScoreCountText.text = totalScore.ToString();
             EnterNameArea.SetActive(true);
         }
+
+        PlayerHealthCounter.Instance.Destroy();
     }
 }

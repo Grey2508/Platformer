@@ -32,7 +32,7 @@ public class ScoreCounter : MonoBehaviour
     private void OnChangeScene(Scene Scene, LoadSceneMode loadSceneMode)
     {
         _scoreCountText = GameObject.FindWithTag("ScoreCountText")?.GetComponent<Text>();
-        
+
         if (_scoreCountText)
             _scoreCountText.text = TotalScore.ToString();
     }
