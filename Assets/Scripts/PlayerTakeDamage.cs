@@ -10,13 +10,15 @@ public class PlayerTakeDamage : MonoBehaviour
 
     [SerializeField] UnityEvent EventOnTakeDamage;
 
+    [SerializeField] UnityEvent EventOnDie;
+
     private bool _invulnerable = false; //неу€звимость
 
     public void TakeDamage(int damageValue)
     {
         if (!_invulnerable)
         {
-            PlayerHealthCounter.Instance.SubstituteHealth(damageValue);
+            PlayerHealthCounter.Instance.SubstituteHealth(damageValue, this);
 
             _invulnerable = true;
             Invoke(nameof(StopInvulnerable), 1);
@@ -34,5 +36,14 @@ public class PlayerTakeDamage : MonoBehaviour
     private void StopInvulnerable()
     {
         _invulnerable = false;
+    }
+
+    public void Die()
+    {
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+
+        EventOnDie.Invoke();
+
+        Debug.Log("You lose");
     }
 }

@@ -12,7 +12,6 @@ public class PlayerHealthCounter : MonoBehaviour
 
     [SerializeField] DamageScreen DamageScreen;
 
-    [SerializeField] UnityEvent EventOnDie;
 
     public static PlayerHealthCounter Instance;
 
@@ -41,7 +40,7 @@ public class PlayerHealthCounter : MonoBehaviour
         HealthUI.DisplayHealth(Health);
     }
 
-    public void SubstituteHealth(int damageValue)
+    public void SubstituteHealth(int damageValue, PlayerTakeDamage sender)
     {
         Health -= damageValue;
 
@@ -52,7 +51,7 @@ public class PlayerHealthCounter : MonoBehaviour
         if (Health <= 0)
         {
             Health = 0;
-            Die();
+            sender.Die();
         }
     }
 
@@ -66,15 +65,6 @@ public class PlayerHealthCounter : MonoBehaviour
         {
             Health = MaxHealth;
         }
-    }
-
-    private void Die()
-    {
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-
-        EventOnDie.Invoke();
-
-        Debug.Log("You lose");
     }
 
     public void Reset()
