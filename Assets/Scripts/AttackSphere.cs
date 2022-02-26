@@ -6,6 +6,8 @@ public class AttackSphere : MonoBehaviour
 {
     [SerializeField] float LifeTime = 5;
     [SerializeField] GameObject EffectPrefab;
+    [SerializeField] int DamageValue = 1;
+    
     void Start()
     {
 
@@ -14,16 +16,18 @@ public class AttackSphere : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        DestroyBullet();
+        DestroyBullet(collision.gameObject.GetComponent<PlayerTakeDamage>());
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        DestroyBullet();
+        DestroyBullet(other.attachedRigidbody.GetComponent<PlayerTakeDamage>());
     }
 
-    private void DestroyBullet()
+    private void DestroyBullet(PlayerTakeDamage playerTakeDamage)
     {
+        playerTakeDamage?.TakeDamage(DamageValue);
+
         //Instantiate(EffectPrefab, transform.position, Quaternion.identity);
 
         Destroy(gameObject);
