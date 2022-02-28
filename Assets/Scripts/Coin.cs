@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public float EffectSpeed = 2;
-    public Collider Collider;
+    [SerializeField] float EffectSpeed = 2;
+    [SerializeField] Collider Collider;
+    [SerializeField] PitchAndPlay CollectSound;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -16,6 +17,7 @@ public class Coin : MonoBehaviour
 
         ScoreCounter.Instance.AddScore(10);
 
+        CollectSound.Play();
         StartCoroutine(CoinEffect());
     }
 
