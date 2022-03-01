@@ -23,12 +23,16 @@ public class Menu : MonoBehaviour
     {
         Saver.Instance.SetHighScore(name, ScoreCounter.Instance.TotalScore);
     }
-    
 
-    public void ShowHighScore()
+    public void ToResultScreenWithDelay(float delay)
     {
-        Debug.Log(PlayerPrefs.GetString("HighScore"));
+        StartCoroutine(ToResultScreen(delay));
     }
 
-    
+    public IEnumerator ToResultScreen(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        SceneSwitcher.Instance.ToResultScreen();
+    }
 }
