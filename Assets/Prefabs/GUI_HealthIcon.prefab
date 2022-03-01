@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2078809685564246996}
   - component: {fileID: 3249007667733715799}
   m_Layer: 6
-  m_Name: HealthIcon
+  m_Name: GUI_HealthIcon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

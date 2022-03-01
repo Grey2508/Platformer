@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 352597159515507284}
   - component: {fileID: 1025173605}
   m_Layer: 7
-  m_Name: AttackSphere
+  m_Name: Enemy_AttackSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
