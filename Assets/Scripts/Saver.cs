@@ -43,4 +43,15 @@ public class Saver : MonoBehaviour
 
         return score;
     }
+
+    public void SetSoundSetting()
+    {
+        int value = SoundState.Instance.IsSoundOn ? 1 : 0;
+        PlayerPrefs.SetInt("IsSoundOn", value);
+    }
+
+    public bool GetSoundSetting()
+    {
+        return PlayerPrefs.GetInt("IsSoundOn") == 1;
+    }
 }

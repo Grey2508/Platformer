@@ -8,14 +8,17 @@ public class Menu : MonoBehaviour
     public AudioListener AudioListener;
     public Image SoundIconUI;
 
-    private void Awake()
+    public GameObject MenuButton;
+    public GameObject MenuWindow;
+
+    private void Start()
     {
         SetSoundState();
     }
 
     public void StartGame()
     {
-        ScoreCounter.Instance.Reset();
+        ScoreCounter.Instance.ResetCounter();
         SceneSwitcher.Instance.LoadScene(1);
     }
     public void ExitGame()
@@ -25,6 +28,8 @@ public class Menu : MonoBehaviour
 
     public void ToMainMenu()
     {
+        PlayerHealthCounter.Instance.Destroy();
+
         SceneSwitcher.Instance.LoadScene(0);
     }
 
@@ -42,6 +47,8 @@ public class Menu : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
 
+        PlayerHealthCounter.Instance.Destroy();
+
         SceneSwitcher.Instance.ToResultScreen();
     }
 
@@ -58,5 +65,27 @@ public class Menu : MonoBehaviour
 
         if (SoundIconUI != null)
             SoundIconUI.sprite = SoundState.Instance.GetCurrentIcon();
+    }
+
+    public void OpenMenuWindow()
+    {
+        MenuButton.SetActive(false);
+        MenuWindow.SetActive(true);
+
+        Time.timeScale = 0;
+    }
+
+    public void CloseMenuWindow()
+    {
+        MenuButton.SetActive(true);
+        MenuWindow.SetActive(false);
+
+        Time.timeScale = 1;
+    }
+
+    public void RestartLevel()
+    {
+        ScoreCounter.Instance.ResetSceneScore();
+        SceneSwitcher.Instance.ReloadCurrentScene();
     }
 }

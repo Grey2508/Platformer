@@ -27,7 +27,5 @@ public class ShowResult : MonoBehaviour
         }
         else
             MusicWithoutRecord.Play();
-
-        PlayerHealthCounter.Instance.Destroy();
     }
 }

@@ -9,6 +9,8 @@ public class ScoreCounter : MonoBehaviour
 {
     private Text _scoreCountText;
 
+    private int _scoreAtBeginLevel;
+
     public int TotalScore
     {
         get;
@@ -33,6 +35,8 @@ public class ScoreCounter : MonoBehaviour
     {
         _scoreCountText = GameObject.FindWithTag("ScoreCountText")?.GetComponent<Text>();
 
+        _scoreAtBeginLevel = TotalScore;
+
         if (_scoreCountText)
             _scoreCountText.text = TotalScore.ToString();
     }
@@ -45,8 +49,13 @@ public class ScoreCounter : MonoBehaviour
             _scoreCountText.text = TotalScore.ToString();
     }
 
-    public void Reset()
+    public void ResetCounter()
     {
         TotalScore = 0;
+    }
+
+    public void ResetSceneScore()
+    {
+        TotalScore = _scoreAtBeginLevel;
     }
 }

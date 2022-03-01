@@ -25,6 +25,11 @@ public class SoundState : MonoBehaviour
             Destroy(gameObject);
     }
 
+    private void Start()
+    {
+        IsSoundOn = Saver.Instance.GetSoundSetting();
+    }
+
     public void SwitchSoundState()
     {
         IsSoundOn = !IsSoundOn;
@@ -33,5 +38,10 @@ public class SoundState : MonoBehaviour
     public Sprite GetCurrentIcon()
     {
         return IsSoundOn ? SoundIcons[0] : SoundIcons[1];
+    }
+
+    private void OnDestroy()
+    {
+        Saver.Instance.SetSoundSetting();
     }
 }
