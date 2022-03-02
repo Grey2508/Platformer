@@ -413,12 +413,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4663570236096469381, guid: 722fc6075b9ebb843b5a5de56814986e, type: 3}
-      propertyPath: EventOnDie.m_PersistentCalls.m_Calls.Array.data[2].m_Target
-      value: 
+      propertyPath: EventOnDie.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4663570236096469381, guid: 722fc6075b9ebb843b5a5de56814986e, type: 3}
+      propertyPath: EventOnDie.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1170739626}
+    - target: {fileID: 4663570236096469381, guid: 722fc6075b9ebb843b5a5de56814986e, type: 3}
       propertyPath: EventOnDie.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
-      value: ToMainMenu
+      value: ToResultScreenWithDelay
+      objectReference: {fileID: 0}
+    - target: {fileID: 4663570236096469381, guid: 722fc6075b9ebb843b5a5de56814986e, type: 3}
+      propertyPath: EventOnDie.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_FloatArgument
+      value: 1.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 722fc6075b9ebb843b5a5de56814986e, type: 3}
@@ -1297,6 +1305,14 @@ PrefabInstance:
       propertyPath: AudioListener
       value: 
       objectReference: {fileID: 963194226}
+    - target: {fileID: 8163522811677877791, guid: d727fa4c11eb2344bb9df97ae55a575b, type: 3}
+      propertyPath: ComponentsToDisable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163522811677877791, guid: d727fa4c11eb2344bb9df97ae55a575b, type: 3}
+      propertyPath: ComponentsToDisable.Array.data[0]
+      value: 
+      objectReference: {fileID: 378058146}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d727fa4c11eb2344bb9df97ae55a575b, type: 3}
 --- !u!224 &1170739625 stripped
@@ -1304,6 +1320,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8163522811677877787, guid: d727fa4c11eb2344bb9df97ae55a575b, type: 3}
   m_PrefabInstance: {fileID: 1170739624}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1170739626 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8163522811677877791, guid: d727fa4c11eb2344bb9df97ae55a575b, type: 3}
+  m_PrefabInstance: {fileID: 1170739624}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5012a4dc7289ca4ca50b486159736b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1236705038
 GameObject:
   m_ObjectHideFlags: 0

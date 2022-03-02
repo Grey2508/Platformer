@@ -16,6 +16,8 @@ public class ShowResult : MonoBehaviour
 
     private void Start()
     {
+        PlayerHealthCounter.Instance.SetActive(false);
+
         int totalScore = ScoreCounter.Instance.TotalScore;
         TotalScoreText.text = totalScore.ToString();
 

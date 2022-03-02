@@ -11,6 +11,8 @@ public class Menu : MonoBehaviour
     public GameObject MenuButton;
     public GameObject MenuWindow;
 
+    public MonoBehaviour[] ComponentsToDisable;
+
     private void Start()
     {
         SetSoundState();
@@ -28,7 +30,7 @@ public class Menu : MonoBehaviour
 
     public void ToMainMenu()
     {
-        PlayerHealthCounter.Instance.Destroy();
+        PlayerHealthCounter.Instance.SetActive(false);
 
         SceneSwitcher.Instance.LoadScene(0);
     }
@@ -46,8 +48,6 @@ public class Menu : MonoBehaviour
     public IEnumerator ToResultScreen(float delay)
     {
         yield return new WaitForSeconds(delay);
-
-        PlayerHealthCounter.Instance.Destroy();
 
         SceneSwitcher.Instance.ToResultScreen();
     }
@@ -72,6 +72,9 @@ public class Menu : MonoBehaviour
         MenuButton.SetActive(false);
         MenuWindow.SetActive(true);
 
+        foreach (MonoBehaviour component in ComponentsToDisable)
+            component.enabled = false;
+
         Time.timeScale = 0;
     }
 
@@ -79,6 +82,9 @@ public class Menu : MonoBehaviour
     {
         MenuButton.SetActive(true);
         MenuWindow.SetActive(false);
+        
+        foreach (MonoBehaviour component in ComponentsToDisable)
+            component.enabled = true;
 
         Time.timeScale = 1;
     }

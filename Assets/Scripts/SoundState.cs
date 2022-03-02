@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundState : MonoBehaviour
 {
@@ -28,11 +29,15 @@ public class SoundState : MonoBehaviour
     private void Start()
     {
         IsSoundOn = Saver.Instance.GetSoundSetting();
+        
+        SetSoundState();
     }
 
     public void SwitchSoundState()
     {
         IsSoundOn = !IsSoundOn;
+
+        SetSoundState();
     }
 
     public Sprite GetCurrentIcon()
@@ -40,8 +45,16 @@ public class SoundState : MonoBehaviour
         return IsSoundOn ? SoundIcons[0] : SoundIcons[1];
     }
 
-    private void OnDestroy()
+    private void OnApplicationQuit()
     {
         Saver.Instance.SetSoundSetting();
+    }
+
+    private void SetSoundState()
+    {
+        if (IsSoundOn)
+            AudioSettings.Mobile.StartAudioOutput();
+        else
+            AudioSettings.Mobile.StopAudioOutput();
     }
 }

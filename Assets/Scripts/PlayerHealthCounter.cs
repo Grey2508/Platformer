@@ -25,7 +25,12 @@ public class PlayerHealthCounter : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         else
+        {
+            Instance.SetActive(true);
+            Instance.Reset();
+
             Destroy(gameObject);
+        }
     }
 
     private void Start()
@@ -73,8 +78,8 @@ public class PlayerHealthCounter : MonoBehaviour
         Inicialize();
     }
 
-    public void Destroy()
+    public void SetActive(bool value)
     {
-        Destroy(gameObject);
+        gameObject.SetActive(value);
     }
 }

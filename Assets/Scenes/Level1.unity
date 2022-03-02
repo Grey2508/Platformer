@@ -1774,7 +1774,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2180,7 +2180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2345,7 +2345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2629,7 +2629,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2931,7 +2931,7 @@ PrefabInstance:
     - target: {fileID: 4663570236096469381, guid: 722fc6075b9ebb843b5a5de56814986e, type: 3}
       propertyPath: EventOnDie.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8163522812704067315}
     - target: {fileID: 4663570236096469381, guid: 722fc6075b9ebb843b5a5de56814986e, type: 3}
       propertyPath: EventOnDie.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: ToResultScreenWithDelay
@@ -3045,5 +3045,40 @@ PrefabInstance:
       propertyPath: AudioListener
       value: 
       objectReference: {fileID: 963194226}
+    - target: {fileID: 8163522811677877791, guid: d727fa4c11eb2344bb9df97ae55a575b, type: 3}
+      propertyPath: ComponentsToDisable.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8163522811677877791, guid: d727fa4c11eb2344bb9df97ae55a575b, type: 3}
+      propertyPath: ComponentsToDisable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1379515292}
+    - target: {fileID: 8163522811677877791, guid: d727fa4c11eb2344bb9df97ae55a575b, type: 3}
+      propertyPath: ComponentsToDisable.Array.data[1]
+      value: 
+      objectReference: {fileID: 1673525262}
+    - target: {fileID: 8163522811677877791, guid: d727fa4c11eb2344bb9df97ae55a575b, type: 3}
+      propertyPath: ComponentsToDisable.Array.data[2]
+      value: 
+      objectReference: {fileID: 1519045363}
+    - target: {fileID: 8163522811677877791, guid: d727fa4c11eb2344bb9df97ae55a575b, type: 3}
+      propertyPath: ComponentsToDisable.Array.data[3]
+      value: 
+      objectReference: {fileID: 1726531157}
+    - target: {fileID: 8163522811677877791, guid: d727fa4c11eb2344bb9df97ae55a575b, type: 3}
+      propertyPath: ComponentsToDisable.Array.data[4]
+      value: 
+      objectReference: {fileID: 2079348404}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d727fa4c11eb2344bb9df97ae55a575b, type: 3}
+--- !u!114 &8163522812704067315 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8163522811677877791, guid: d727fa4c11eb2344bb9df97ae55a575b, type: 3}
+  m_PrefabInstance: {fileID: 8163522812704067314}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5012a4dc7289ca4ca50b486159736b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
