@@ -455,7 +455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42278038dc6956c4fa1bb6d188ba7e56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RecordWindow: {fileID: 110853443}
   NameText: {fileID: 1699353356}
   ScoreText: {fileID: 98089814}
 --- !u!114 &110853446
@@ -868,7 +867,6 @@ GameObject:
   - component: {fileID: 444429319}
   - component: {fileID: 444429322}
   - component: {fileID: 444429321}
-  - component: {fileID: 444429320}
   - component: {fileID: 444429323}
   m_Layer: 5
   m_Name: AttributionWindow
@@ -901,21 +899,6 @@ RectTransform:
   m_AnchoredPosition: {x: 160, y: -9.999999}
   m_SizeDelta: {x: 1040, y: 640}
   m_Pivot: {x: 0, y: 0.5}
---- !u!114 &444429320
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 444429318}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42278038dc6956c4fa1bb6d188ba7e56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RecordWindow: {fileID: 444429318}
-  NameText: {fileID: 852243624}
-  ScoreText: {fileID: 0}
 --- !u!114 &444429321
 MonoBehaviour:
   m_ObjectHideFlags: 0

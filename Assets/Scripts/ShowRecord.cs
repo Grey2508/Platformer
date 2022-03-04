@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ShowRecord : MonoBehaviour
 {
-    public GameObject RecordWindow;
     public Text NameText;
     public Text ScoreText;
 
