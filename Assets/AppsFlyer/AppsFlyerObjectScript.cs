@@ -2,11 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using AppsFlyerSDK;
+using UnityEngine.UI;
 
 // This class is intended to be used the the AppsFlyerObject.prefab
 
-public class AppsFlyerObjectScript : MonoBehaviour , IAppsFlyerConversionData
+public class AppsFlyerObjectScript : MonoBehaviour, IAppsFlyerConversionData
 {
+    public static string AppsFlyerID;
+    public Text InstallID;
+    public Text StoreID;
+    public Text FBAttributionID;
+    public Text IsPreInstall;
 
     // These fields are set from the editor so do not modify!
     //******************************//
@@ -29,14 +35,13 @@ public class AppsFlyerObjectScript : MonoBehaviour , IAppsFlyerConversionData
         AppsFlyer.initSDK(devKey, appID, getConversionData ? this : null);
 #endif
         //******************************/
- 
+
         AppsFlyer.startSDK();
-    }
 
-
-    void Update()
-    {
-
+        InstallID.text = string.IsNullOrWhiteSpace(AppsFlyer.getAppsFlyerId())?"None": AppsFlyer.getAppsFlyerId();
+        StoreID.text = string.IsNullOrWhiteSpace(AppsFlyerAndroid.getOutOfStore())?"None": AppsFlyerAndroid.getOutOfStore();
+        FBAttributionID.text = string.IsNullOrWhiteSpace(AppsFlyerAndroid.getAttributionId()) ? "None" : AppsFlyerAndroid.getAttributionId();
+        IsPreInstall.text = AppsFlyerAndroid.isPreInstalledApp().ToString();
     }
 
     // Mark AppsFlyer CallBacks

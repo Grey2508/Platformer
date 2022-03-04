@@ -12,6 +12,10 @@ public class AppsFlyerObjectEditor : Editor
     SerializedProperty UWPAppID;
     SerializedProperty isDebug;
     SerializedProperty getConversionData;
+    SerializedProperty InstallID;
+    SerializedProperty StoreID;
+    SerializedProperty FBAttributionID;
+    SerializedProperty IsPreInstall;
 
 
     void OnEnable()
@@ -21,6 +25,11 @@ public class AppsFlyerObjectEditor : Editor
         UWPAppID = serializedObject.FindProperty("UWPAppID");
         isDebug = serializedObject.FindProperty("isDebug");
         getConversionData = serializedObject.FindProperty("getConversionData");
+
+        InstallID= serializedObject.FindProperty("InstallID");
+        StoreID= serializedObject.FindProperty("StoreID");
+        FBAttributionID= serializedObject.FindProperty("FBAttributionID");
+        IsPreInstall = serializedObject.FindProperty("IsPreInstall");
     }
 
 
@@ -45,10 +54,21 @@ public class AppsFlyerObjectEditor : Editor
         EditorGUILayout.HelpBox("Debugging should be restricted to development phase only.\n Do not distribute the app to app stores with debugging enabled", MessageType.Warning);
         EditorGUILayout.PropertyField(isDebug);
         EditorGUILayout.Separator();
+        EditorGUILayout.Space();
+
+        EditorGUILayout.HelpBox("Felds for attriobution data", MessageType.None);
+        EditorGUILayout.PropertyField(InstallID);
+        EditorGUILayout.Separator();
+        EditorGUILayout.PropertyField(StoreID);
+        EditorGUILayout.Separator();
+        EditorGUILayout.PropertyField(FBAttributionID);
+        EditorGUILayout.Separator();
+        EditorGUILayout.PropertyField(IsPreInstall);
+        EditorGUILayout.Separator();
 
         EditorGUILayout.HelpBox("For more information on setting up AppsFlyer check out our relevant docs.", MessageType.None);
 
-   
+
         if (GUILayout.Button("AppsFlyer Unity Docs", new GUILayoutOption[] { GUILayout.Width(200) }))
         {
             Application.OpenURL("https://support.appsflyer.com/hc/en-us/articles/213766183-Unity-SDK-integration-for-developers");
