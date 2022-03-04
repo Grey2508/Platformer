@@ -16,9 +16,4 @@ public class ShowRecord : MonoBehaviour
         NameText.text = highScore.Item1;
         ScoreText.text = highScore.Item2.ToString();
     }
-
-    public void SwitchRecordArea()
-    {
-        RecordWindow.SetActive(!RecordWindow.activeSelf);
-    }
 }
