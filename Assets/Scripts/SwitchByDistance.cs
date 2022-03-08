@@ -10,7 +10,6 @@ public class SwitchByDistance : MonoBehaviour
     public bool Active = true;
     public float ActiveDistance = 20;
 
-    public GameObject Model;
     public MonoBehaviour[] Scripts;
 
     private Transform _playerTransform;
@@ -39,8 +38,6 @@ public class SwitchByDistance : MonoBehaviour
 
     private void SetActive()
     {
-        Model?.SetActive(Active);
-
         foreach (MonoBehaviour script in Scripts)
             script.enabled = Active;
 
