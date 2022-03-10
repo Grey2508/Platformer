@@ -7,10 +7,14 @@ using UnityEngine.SceneManagement;
 public class SceneSwitcher : MonoBehaviour
 {
     public static SceneSwitcher Instance;
+    public GameObject LoadScreen;
 
     private int _currentSceneIndex = 0;
+
     void Awake()
     {
+        SceneManager.sceneLoaded += OnChangeScene;
+
         if (Instance == null)
         {
             Instance = this;
@@ -20,17 +24,25 @@ public class SceneSwitcher : MonoBehaviour
             Destroy(gameObject);
     }
 
+    private void OnChangeScene(Scene arg0, LoadSceneMode arg1)
+    {
+        LoadScreen.SetActive(false);
+
+        Time.timeScale = 1;
+    }
+
     public void LoadScene(int sceneIndex)
     {
-        Time.timeScale = 1;
+        Time.timeScale = 0;
+        LoadScreen.SetActive(true);
 
         _currentSceneIndex = sceneIndex;
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadSceneAsync(sceneIndex);
     }
 
     public void ToResultScreen()
     {
-        SceneManager.LoadScene("FinishScene");
+        LoadScene(SceneManager.sceneCountInBuildSettings - 1);
     }
 
     public void ReloadCurrentScene()
